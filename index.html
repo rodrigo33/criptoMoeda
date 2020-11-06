@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>CoinMarketCap</title>
 </head>
 <body>
-    
+    <script type="text/javascript">
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var apikey = {
+            key: '86a35e28-24cd-4f56-8007-40c9cc8fef9c'
+        }
+        //Solicitação objeto Stream
+        fetch(proxyurl + 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' + 
+            apikey.key)
+            //resposta método json
+            .then((response) => {
+                if(!response.ok) throw new Error('Erro ao executa a requisição, status', response.status);
+                return response.json();
+            })
+            .then((api) => {
+                console.log(api)
+                // var texto = 
+            })
+            .catch((error) => {
+                console.error(error.message);
+            })
+    </script>
 </body>
 </html>
